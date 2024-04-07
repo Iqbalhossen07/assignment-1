@@ -1,0 +1,59 @@
+
+   html, body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .profile-card {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  img {
+    width: 80px;
+    border-radius: 50%;
+  }
+  
+  .name {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .occupation {
+    font-size: 18px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .contact {
+    margin-top: 20px;
+  }
+  
+  .contact p {
+    font-size: 14px;
+    color: #777;
+    margin: 5px 0;
+  }
+  

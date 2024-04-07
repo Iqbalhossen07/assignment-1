@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .calculator {
+          max-width: 1200px;
+          margin: 50px auto;
+        }
+      </style>
+
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="container calculator ">
+        <h1 class="text-center mb-4">Simple Calculator</h1>
+        <form  id="calculatorForm">
+          <div class="row justify-content-around">
+            <div class="col-md-4 mb-4">
+              <label for="number1" class="form-label">First Input Field:</label>
+              <input type="number" class="form-control form-control-lg" id="number1" placeholder="Please enter the first number" required>
+            </div>
+            <div class="col-md-4 mb-4">
+              <label for="number2" class="form-label">Second Input Field:</label>
+              <input type="number" class="form-control form-control-lg" id="number2" placeholder="Please enter the second number" required>
+            </div>
+            <div class="col-md-4 mb-4">
+              <label for="operation" class="form-label">Operation:</label>
+              <select class="form-select form-control-lg" id="operation" required>
+                <option value="">Select operation</option>
+                <option value="add">Addition (+)</option>
+                <option value="subtract">Subtraction (-)</option>
+                <option value="multiply">Multiplication (*)</option>
+                <option value="divide">Division (/)</option>
+              </select>
+            </div>
+          </div>
+          
+          
+          <button type="submit" class="btn btn-success">Calculate</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+      </div>
+      
+      <script>
+        document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          const number1 = parseFloat(document.getElementById('number1').value);
+          const number2 = parseFloat(document.getElementById('number2').value);
+          const operation = document.getElementById('operation').value;
+          let result;
+      
+          switch(operation) {
+            case 'add':
+              result = number1 + number2;
+              break;
+            case 'subtract':
+              result = number1 - number2;
+              break;
+            case 'multiply':
+              result = number1 * number2;
+              break;
+            case 'divide':
+              if (number1 !== 0 && number2 !== 0) {
+                result = number1 / number2;
+              } else {
+                document.getElementById('result').innerHTML = '<div class="alert alert-danger" role="alert"> Oopps Cannot divide by zero.Please avoid zero number.</div>';
+                return;
+              }
+              break;
+            default:
+              document.getElementById('result').innerHTML = '<div class="alert alert-danger" role="alert"> Please select an operation</div>';
+              return;
+          }
+      
+          document.getElementById('result').innerHTML = `<div class="alert alert-success" role="alert">Congratulations! Your result is: ${result}</div>`;
+        });
+      </script>
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
